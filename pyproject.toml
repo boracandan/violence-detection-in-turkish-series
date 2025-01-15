@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools", "setuptools-scm"]
+build-backend = "setuptools.build_meta" 
+
+[project]
+name = "ViolenceDetectionInTurkishSeries"
+version = "0.1.0"
+dependencies = [
+    "assemblyai>=0.35.1",
+    "beautifulsoup4>= 4.12.3",
+    "lxml>=5.3.0",
+    "openai>=1.58.1",
+    "pip>=24.3.1",
+    "PySocks>=1.7.1",
+    "PyYAML>=6.0.2",
+    "requests>=2.32.3",
+    "selenium>=4.27.0",
+    "yt-dlp>=2024.11.18",
+]
+authors = [
+    {name = "Bora Candan", email = "1boracandan@email.com"}
+]
+description = "An application for detecting violence against women in the most-watched segments of Turkish TV series, providing a percentage-based analysis."
+readme = "README.md"
