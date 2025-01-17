@@ -9,29 +9,6 @@ class ViolenceDetectionDatabase():
     def __init__(self, dbPath: str = "./data/violeneDetection.db") -> None:
         self.conn = sq.connect(dbPath, check_same_thread=False)
         self.cursor = self.conn.cursor()
-
-        # try:   
-        #     self.cursor.execute\
-        #     ("""CREATE TABLE YalıÇapkını (
-        #         episode_timeframe TEXT NOT NULL PRIMARY KEY,
-        #         link TEXT NOT NULL,
-        #         transcript TEXT,
-        #         violence INT,
-        #         llm_violence_prediction INT 
-        #     ); """)
-        # except:
-        #     pass 
-
-        # try:   
-        #     self.cursor.execute\
-        #     ("""CREATE TABLE Hercai (
-        #         episode_timeframe TEXT NOT NULL PRIMARY KEY,
-        #         link TEXT NOT NULL,
-        #         transcript TEXT,
-        #         llm_violence_prediction INT 
-        #     ); """)
-        # except:
-        #     pass 
         
     def __enter__(self) -> "ViolenceDetectionDatabase":
         return self
@@ -118,40 +95,5 @@ class ViolenceDetectionDatabase():
         
         resultList = self.cursor.fetchall()
         return resultList
-
-
-
-# with ViolenceDetectionDatabase() as VDdb:
-#     r = VDdb.select_all("SenAnlatKaradeniz", "llm_violence_prediction IS  ?", (None,))
-#     print(len(r))
-    # violentCount = 0
-    # for instance in r:
-    #     if instance[4] == 1:
-    #         violentCount += 1
-    # violentPercentage = violentCount / len(r) * 100
-    # print(f"Violent Percentage: {violentPercentage}%")
-
-#     FILE_PATHS = [f"audios/HercaiAudios/{file}" for file in listdir("audios/HercaiAudios")]
-#     print(len(FILE_PATHS))
-    
-    # VDdb.update_case("12:02:06:44", transcript= "Speaker A: Hepsi benim suçum dede bu masadaki kimse söylediklerini hak etmiyor. Bak bana! (Tokat atar.)")
-    # VDdb.cursor.execute("PRAGMA table_info(Hercai);")
-
-    # print(VDdb.cursor.fetchall())
-
-    # data = VDdb.select_all("Sen")
-    # print(data, len(data))
-    # VDdb.update_case('9:01:51:39:01:53:09', llm_violence_prediction=None)
-    # VDdb.cursor.execute("SELECT * FROM YalıÇapkını WHERE llm_violence_prediction IS NOT ? AND violence IS NOT ?", (None, None))
-    # resultList = VDdb.select_all("Sen", "llm_violence_prediction IS ?", (None,))
-    # print(resultList, len(resultList))
-    # VDdb.update_case("1:00:34:10", transcript=None)
-    # VDdb.cursor.execute("UPDATE YalıÇapkını SET llm_violence_prediction2 = NULL")
-    # VDdb.cursor.execute("DROP TABLE Sen")
-    # VDdb.conn.commit()
-    # resultList = VDdb.cursor.fetchall()
-    # print(resultList)
-    # VDdb.cursor.execute("DELETE FROM SenAnlatKaradeniz WHERE llm_violence_prediction IS NULL")
-    # VDdb.conn.commit()
 
     
